@@ -1,13 +1,12 @@
-* {
+*{
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  color: lightgray;
+body{
+  font-family: 'Open Sans', sans-serif;
   height: 100vh;
   width: 100%;
-  background-color: #313537;
+  background-color: lightgray;
 }
