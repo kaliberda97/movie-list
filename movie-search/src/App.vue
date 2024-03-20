@@ -1,25 +1,22 @@
 <script setup>
-import {state} from './store'
-import { computed } from 'vue'
-import Search from './components/Search.vue'
+import Search from "./components/Search.vue";
+import { state } from "./store";
+import { computed } from "vue";
 
-
-// a computed ref
 const movies = computed(() => {
-  return state.data
-})
+  return state.data;
+});
 </script>
 
 <template>
-  <div class="container">
+  <div>
     <Search @search="state.handleSearch" />
     <div v-if="movies">
-      <ul  >
-        <li v-for="movie in movies" :key=movie.imdbID>
-          <img :src=movie.Poster alt="Movie Poster" width="100">
-          <h3 >{{ movie.Title }}</h3>
+      <ul>
+        <li v-for="movie in movies" :key="movie.imdbID">
+          <img :src="movie.Poster" alt="Movie Poster" width="100" />
+          <h3>{{ movie.Title }}</h3>
           <p>{{ movie.Year }}</p>
-       
         </li>
       </ul>
     </div>
@@ -27,36 +24,26 @@ const movies = computed(() => {
   </div>
 </template>
 
-
-
 <style scoped>
-img{
-  width: 250px;
-  height: 350px;
-  object-fit: cover;
-  object-position: center center;
-  margin-top: 20px;
-  border-radius: 25px;
-}
-ul{
+ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
   display: flex;
   justify-content: center;
- flex-wrap: wrap;
-
+  flex-wrap: wrap;
 }
-li{
- 
+
+li {
   width: 300px;
   height: 500px;
   margin: 10px;
-  background-color:gray;
+  background-color: gray;
   border-radius: 50px;
 }
-.container{
-  background-color: lightgray;
+
+img {
+  width: 250px;
+  height: 350px;
+  margin: 10px;
+  border-radius: 25px;
 }
 </style>

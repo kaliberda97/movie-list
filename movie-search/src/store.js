@@ -1,33 +1,21 @@
-import { reactive } from "vue";
-import { ref, watchEffect } from 'vue'
-const key= import.meta.env.VITE_KEY
+import { reactive, watchEffect } from "vue";
 
-const API_URL = `https://www.omdbapi.com/?apikey=${key}`
-const defaultSearchTerm = 'Harry Potter'
+const key = import.meta.env.VITE_KEY;
+const api = ///// `http://www.omdbapi.com/
 
-const searchTerm = ref(defaultSearchTerm)
-const movies = ref(null)
+const handleSearch = (name) => {
+  state.searchTerm = name;
+};
 
+export const state = reactive({
+  data: [],
+  handleSearch: handleSearch,
+  searchTerm: "Harry Potter",
+});
 
-
-const handleSearch = (term) => {
-  
-  state.searchTerm = term
-
-}
-
-export  const state = reactive({
-    count: 0,
-    increment:() =>(state.count++),
-    data: [],
-    searchTerm:'Harry Potter',
-    handleSearch: handleSearch
-  });
-
-  watchEffect(async () => {
-    const url = `${API_URL}&s=${state.searchTerm}`
-    const response = await fetch(url)
-    const data = await response.json()
-    state.data = data.Search
- 
-  })
+watchEffect(async () => {
+  const response = await fetch(`${api}&s=${state.searchTerm}`);
+  const data = await response.json();
+  state.data = data.Search;
+  console.log(state.data);
+});
