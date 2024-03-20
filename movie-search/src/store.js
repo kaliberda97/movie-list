@@ -1,7 +1,8 @@
 import { reactive, watchEffect } from "vue";
 
 const key = import.meta.env.VITE_KEY;
-const api = ///// `http://www.omdbapi.com/
+//const api = `http://www.omdbapi.com/
+//завтра устранить ошибку 
 
 const handleSearch = (name) => {
   state.searchTerm = name;
